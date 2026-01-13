@@ -7,38 +7,55 @@
         <div class="card p-4 shadow-sm pastel-form-card">
             <h3 class="fw-bold text-center mb-4">Register</h3>
 
+            {{-- 🔴 TAMPILKAN ERROR --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
                 <div class="mb-3">
                     <label>Name</label>
-                    <input type="text" name="name"
+                    <input type="text"
+                           name="name"
+                           value="{{ old('name') }}"
                            class="form-control pastel-input"
                            required>
                 </div>
 
                 <div class="mb-3">
                     <label>Email</label>
-                    <input type="email" name="email"
+                    <input type="email"
+                           name="email"
+                           value="{{ old('email') }}"
                            class="form-control pastel-input"
                            required>
                 </div>
 
                 <div class="mb-3">
                     <label>Password</label>
-                    <input type="password" name="password"
+                    <input type="password"
+                           name="password"
                            class="form-control pastel-input"
                            required>
                 </div>
 
                 <div class="mb-3">
                     <label>Confirm Password</label>
-                    <input type="password" name="password_confirmation"
+                    <input type="password"
+                           name="password_confirmation"
                            class="form-control pastel-input"
                            required>
                 </div>
 
-                <button class="btn pastel-btn w-100">
+                <button type="submit" class="btn pastel-btn w-100">
                     Register
                 </button>
             </form>

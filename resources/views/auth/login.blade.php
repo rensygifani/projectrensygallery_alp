@@ -1,43 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
 
-        <div class="card p-4 shadow-sm pastel-form-card">
-            <h3 class="fw-bold text-center mb-4">Login</h3>
+            <div class="card p-4 shadow-sm pastel-form-card">
+                <h3 class="fw-bold text-center mb-4">Login</h3>
 
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-                <div class="mb-3">
-                    <label>Email</label>
-                    <input type="email" name="email"
-                           class="form-control pastel-input"
-                           required autofocus>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control pastel-input" required autofocus>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control pastel-input" required>
+                                            @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="text-decoration-none pastel-link small">
+                            Lupa password?
+                        </a>
+                    @endif
+                    </div>
+
+                    <button class="btn pastel-btn w-100">
+                        Login
+                    </button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <small>Belum punya akun?
+                        <a href="{{ route('register') }}">Register</a>
+                    </small>
                 </div>
 
-                <div class="mb-3">
-                    <label>Password</label>
-                    <input type="password" name="password"
-                           class="form-control pastel-input"
-                           required>
-                </div>
 
-                <button class="btn pastel-btn w-100">
-                    Login
-                </button>
-            </form>
 
-            <div class="text-center mt-3">
-                <small>Belum punya akun?
-                    <a href="{{ route('register') }}">Register</a>
-                </small>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
 @endsection
 
 

@@ -29,13 +29,21 @@
                     🛒 Cart
                 </a>
 
+                <a href="{{ route('wishlist') }}" class="btn pastel-outline">
+                    ❤️ Wishlist
+                </a>
+
+                <a href="{{ route('coupons.index') }}" class="btn pastel-outline">
+                    🎟️ Kupon
+                </a>
+
                 <a href="{{ route('orders') }}" class="btn pastel-outline">
                     Orders
                 </a>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button class="btn pastel-danger">
+                    <button class="btn btn-sm btn-danger">
                         Logout
                     </button>
                 </form>
